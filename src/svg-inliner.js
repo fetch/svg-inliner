@@ -11,7 +11,7 @@
           console.log('Could not load ' + src);
         }
       }
-    }
+    };
     xmlhttp.open('GET', src, true);
     xmlhttp.send();
   }
@@ -19,11 +19,11 @@
   function inlineSvg(el){
     var src = el.src
       , id = el.id || false
-      , className = el.className.replace(/(^| )inline-svg( |$)/, '$1inlined-svg$2')
+      , className = el.className.replace(/(^| )inline-svg( |$)/, '$1inlined-svg$2');
 
     var tmp = document.createElement('div');
     var svg, parent;
-    
+
     loadSvg(src, function(responseText, xmlhttp){
       tmp.innerHTML = responseText;
       svg = tmp.firstChild;
@@ -35,7 +35,7 @@
       try {
         el.parentNode.replaceChild(svg, el);
       }catch(e){
-        el.className.replace(/(^| )inline-svg( |$)/, '$1inline-svg-failed$2')
+        el.className.replace(/(^| )inline-svg( |$)/, '$1inline-svg-failed$2');
       }
     });
   }
